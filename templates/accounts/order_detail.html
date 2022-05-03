@@ -7,7 +7,7 @@
     /* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); */
     body {
         background-color: #ffe8d2;
-        font-family: 'Montserrat', sans-serif
+        /* font-family: 'Montserrat', sans-serif */
     }
 
     .card {
@@ -53,11 +53,13 @@
                                 <tr>
                                     <td>
                                         <div class="py-2"> <span class="d-block text-muted">Order Date</span>
-                                            <span>{{order.created_at}}</span> </div>
+                                            <span>{{order.created_at}}</span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="py-2"> <span class="d-block text-muted">Order No</span>
-                                            <span>{{order.order_number}}</span> </div>
+                                            <span>{{order.order_number}}</span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img
@@ -67,7 +69,8 @@
                                     <td>
                                         <div class="py-2"> <span class="d-block text-muted">Shiping Address</span>
                                             <span>{{order.full_address}} {{order.city}}, {{order.state}}
-                                                {{order.country}} </span> </div>
+                                                {{order.country}} </span>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -76,14 +79,20 @@
                     <div class="product border-bottom table-responsive">
                         <table class="table table-borderless">
                             <tbody>
-                            
 
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
 
                                 {% for item in order_detail %}
                                 <tr>
 
-                                    <td><img src="{{ item.product.images.url }}"
-                                        class="img-sm"></td>
+                                    <td><img src="{{ item.product.images.url }}" class="img-sm"></td>
                                     <td>
                                         <h5 class="tect-bold">{{item.product.product_name}}</h5>
                                         <p class="text-muted small">
@@ -118,7 +127,7 @@
                                         <td>
                                             <div class="text-left"> <span class="text-muted">Shipping Fee</span> </div>
                                         </td> -->
-                                        <!-- <td>
+                                    <!-- <td>
                                             <div class="text-right"> <span>$22</span> </div>
                                         </td> -->
                                     <!-- </tr> -->
@@ -131,10 +140,10 @@
                                         </td>
                                     </tr>
                                     <!-- <tr> -->
-                                        <!-- <td>
+                                    <!-- <td>
                                             <div class="text-left"> <span class="text-muted">Discount</span> </div>
                                         </td> -->
-                                        <!-- <td>
+                                    <!-- <td>
                                             <div class="text-right"> <span class="text-success">$168.50</span> </div>
                                         </td> -->
                                     <!-- </tr> -->
@@ -144,7 +153,8 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span class="font-weight-bold">₹{{order.order_total}}</span>
+                                            <div class="text-right"> <span
+                                                    class="font-weight-bold">₹{{order.order_total}}</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -155,7 +165,8 @@
                     <p>We will be sending shipping confirmation email when the item shipped successfully!</p>
                     <p class="font-weight-bold mb-0">Thanks for shopping with us!</p> <span>Oswaldtruz Team</span>
                 </div>
-                <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="mailto:info@oswaldtruz.in"> help
+                <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a
+                            href="mailto:info@oswaldtruz.in"> help
                             center</a></span> <span>{{order.created_at}}</span> </div>
             </div>
         </div>

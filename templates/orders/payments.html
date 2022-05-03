@@ -2,7 +2,28 @@
 {% load static %}
 
 {% block content %}
-
+<style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+    
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
 
 <section class="section-content padding-y bg">
     <div class="container">
@@ -108,10 +129,13 @@
                             <dd class="text-right text-dark b"><strong>₹ {{grand_total}}</strong></dd>
                         </dl>
                         <hr>
+                    
+                        <h5 class="text-danger">Don't Do Payment This is dummy Payment Gateway </h3>
+                            <p class="text-danger"> Genuine Payment Gateway is in testing Phase,It will be available soon.</p>
+                        <hr>
                         <p class="text-center mb-3">
                             <img src="{% static './images/misc/payments.png' %}" height="26">
                         </p>
-
 
                         <div id="paypal-button-container"></div>
 
@@ -179,6 +203,7 @@
                 sendData()
 
                 function sendData() {
+                    
                     fetch(url, {
                         method: 'POST',
                         headers: {
@@ -193,7 +218,7 @@
                         }),
                     })
                         .then((response) => response.json())
-                        .then((data) => {
+                        .then((data) => {                            
                             console.log('Success : ', data);
                             console.log('Transaction Completed');
                             window.location.href = redirect_url + '?order_number=' + data.order_number + '&payment_id=' + data.transID;

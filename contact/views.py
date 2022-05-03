@@ -29,9 +29,7 @@ def Contact(request):
         messages.success(
             request, 'Message sent')
         print("mail sent successfully")
-    else:
-        messages.error(
-            request, 'Invalid !!!!!')
+    
 
     
     

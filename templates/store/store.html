@@ -14,7 +14,7 @@
 <section class="section-content padding-y">
     <div class="container">
         <div class="row">
-            <aside class="col-md-3">
+            <aside class="col-md-3 ">
                 <div class="card">
                     <article class="filter-group">
                         <header class="card-header">
@@ -39,11 +39,7 @@
                             <!-- card-body.// -->
                         </div>
                     </article>
-                    <!-- filter-group  .// -->
 
-                    <!-- filter-group .// -->
-
-                    <!-- filter-group .// -->
                 </div>
                 <!-- card.// -->
             </aside>
@@ -58,7 +54,7 @@
 
                 <div class="row">
                     {%if products%} {%for product in products%}
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-6 col-6">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
                                 <a href="{{product.get_url}}">
@@ -68,13 +64,12 @@
                             <figcaption class="info-wrap">
                                 <div class="fix-height">
                                     <a href="{{product.get_url}}" class="title">{{product.product_name}}</a>
-                                    <div class="price-wrap mt-2">
-                                        <span class="price">₹{{product.price}}</span>
+                                    <div class="price-wrap mt-1">
+                                        <span class="price">₹ {{product.price}}</span>
                                     </div>
                                     <!-- price-wrap.// -->
                                 </div>
-
-                                <a href="{{product.get_url}}" class="btn btn-block btn-primary">View Product
+                                <a href="{{product.get_url}}" class="btn btn-block btn-success">View Product
                                 </a>
                             </figcaption>
                         </figure>
@@ -90,10 +85,10 @@
 
                 <nav class="mt-4" aria-label="Page navigation sample">
                     {%if products.has_other_pages%}
-                    <ul class="pagination">
+                    <ul class="pagination ">
                         {%if products.has_previous%}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{products.previous_page_number}}">Previous</a>
+                            <a class="page-link " href="?page={{products.previous_page_number}}">Previous</a>
                         </li>
                         {%else%}
                         <li class="page-item disabled">
@@ -102,7 +97,7 @@
                         {%endif%} {%for i in products.paginator.page_range %}
                         <br />
                         {%if products.number == i%}
-                        <li class="page-item active">
+                        <li class="page-item active ">
                             <a class="page-link" href="#">{{i}}</a>
                         </li>
                         {%else%}

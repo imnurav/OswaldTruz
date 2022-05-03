@@ -27,9 +27,9 @@
       </form>
     </div>
     <!-- Search Field -->
+    {%comment%}
     <div class="gallary">
-
-      <h1 class="text-center">Our Gallary</h1>
+      <h1 class="text-center">Photos</h1>
       <hr>
 
       <div id="carouselExampleControls" class="carousel slide rounded" data-ride="carousel">
@@ -54,9 +54,10 @@
         </a>
       </div>
     </div>
+    {%endcomment%}
 
     <!-- Why choose us -->
-    <!-- <div class="choose mt-4 mb-4">
+    {% comment %} <div class="choose mt-4 mb-4">
       <h1 class="text-center">Why Choose Us
       </h1>
       <hr>
@@ -108,7 +109,7 @@
       </div>
 
 
-    </div> -->
+    </div> {% endcomment %}
     <!-- Why choose us -->
 
 
@@ -120,19 +121,16 @@
 
     <div class="cat mt-4 mb-3">
 
-      <h1 class="mt-4 text-center
-  ">Categories We Deal With</h1>
+      <h3 class="mt-4 text-center">Categories We Deal With</h3>
       <hr>
       <div class="row">
 
         {%for category in links%}
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6 col-6">
           <div class="card card-product-grid">
             <a href="{{category.get_url}}" class="img-wrap"> <img src="{{category.cat_image.url }}"> </a>
             <figcaption class="info-wrap text-center">
-              <a href="{{ product.get_url }}" class="title">{{category.category_name}}</a>
-              <!-- price-wrap.// -->
-
+              <a href="{{category.get_url}}" class="title">{{category.category_name}}</a>
             </figcaption>
           </div>
         </div> <!-- col.// -->
@@ -151,7 +149,7 @@
   <div class="container">
 
     <header class="section-heading">
-      <a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
+      <a href="{% url 'store' %}" class="btn btn-outline-success float-right">See all</a>
       <h3 class="section-title">Popular products</h3>
     </header><!-- sect-heading -->
 

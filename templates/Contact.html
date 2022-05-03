@@ -1,6 +1,84 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-{% block content %}
-<h1>Contact Us</h1>
+
+<div class="container" style="height: 80vh;margin-top: 50px!important;">
+    <!-- section title -->
+    <h2 class="section-title wow fadeInUp text-center mt-4 mb-4">Get In Touch</h2>
+
+    <div class="spacer" data-height="60"></div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <!-- contact info -->
+            <!-- <div class="contact-info"> -->
+            <div class="mb-4">
+                <h3 class="wow fadeInUp">Let's talk about everything!</h3>
+                <p class="wow fadeInUp">Didn't like web site ? Send me an <a
+                        href="mailto:info@oswaldtruz.in">Email</a>. 👋</p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <!-- Contact Form -->
+            <form id="contact-form" class="contact-form mt-6" method="POST" action="">
+
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="column col-md-6">
+                        <!-- Name input -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" id="InputName"
+                                placeholder="Your name" required="required" data-error="Name is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="column col-md-6">
+                        <!-- Email input -->
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="userEmail"
+                                placeholder="Email address" required="required"
+                                data-error="Email is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="column col-md-12">
+                        <!-- Email input -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="InputSubject" name="sub"
+                                placeholder="Subject" required="required" data-error="Subject is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="column col-md-12">
+                        <!-- Message textarea -->
+                        <div class="form-group">
+                            <textarea name="message" id="InputMessage" class="form-control" rows="5"
+                                placeholder="Message" required="required"
+                                data-error="Message is required."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" name="submit" id="submit" value="Submit"
+                    class="btn btn-success mb-4">Send
+                    Message</button>
+                <!-- Send Button -->
+
+            </form>
+    {%include 'includes/alerts.html' %}
+
+            <!-- Contact Form end -->
+        </div>
+
+    </div>
+
+</div>
+
+
 {% endblock content %}
